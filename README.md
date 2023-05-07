@@ -37,7 +37,9 @@
 
 ### **1> Chuyển màn hình**
  - Nhập hàng và thống kê: Để thêm, sửa, xoá hàng hoá và thống kê tất cả hàng hoá có trong siêu thị. Muốn tới màn hình có chứa các chức năng này, nhấn vào nút **`Nhập hàng và thống kê`**.
-![NhapHang](./src/main/java/image/nhapHangVaThongKe.jpg "NhapHang")
+ 
+ ![NhapHang](./src/main/java/image/nhapHangVaThongKe.jpg "NhapHang")
+ 
 - Tìm kiếm và bán hàng: Để tìm kiếm hàng hoá và thống kê các mặt hàng khách hàng muốn mua, sau đó có thể in bill. Muốn tới màn hình có chứa các chức năng này, nhấn vào nút **`Tìm kiếm và bán hàng`**.
 
     ![BanHang](./src/main/java/image/timKiemVaBanHang.jpg "BanHang")

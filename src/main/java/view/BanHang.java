@@ -14,7 +14,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JSpinner;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
 import javax.swing.table.DefaultTableModel;
 import model.Product;
 
@@ -41,13 +51,15 @@ public final class BanHang extends javax.swing.JPanel {
             "Mã hàng", "Tên hàng hoá", "Giá", "Số lượng"};
     public BanHang() {
         initComponents();
-        addSearchProductListener(new SearchProductListener());
-        addProductListener(new AddProductListener());
-        deleteProductListener(new DeleteProductListener());
-        showDate();
-        payProductListener(new PayProductListener());
+//        addSearchProductListener(new SearchProductListener());
+//        addProductListener(new AddProductListener());
+//        deleteProductListener(new DeleteProductListener());
+//        showDate();
+//        payProductListener(new PayProductListener());
         
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -193,7 +205,7 @@ public final class BanHang extends javax.swing.JPanel {
         billLayout.setVerticalGroup(
             billLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(billLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(44, Short.MAX_VALUE)
                 .addComponent(nameMarket, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tksAndGoodbye, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -262,11 +274,11 @@ public final class BanHang extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Bảng sản phẩm đang mua");
 
-        add.setText("ADD");
+        add.setText("Thêm");
 
         pay.setText("Tính tiền");
 
-        delete.setText("DELETE");
+        delete.setText("Xoá");
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Số lượng");
@@ -297,7 +309,7 @@ public final class BanHang extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 250, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
                         .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127)))
                 .addComponent(bill, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -322,12 +334,12 @@ public final class BanHang extends javax.swing.JPanel {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pay, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(delete, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
-            .addComponent(bill, javax.swing.GroupLayout.PREFERRED_SIZE, 575, Short.MAX_VALUE)
+            .addComponent(bill, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -444,102 +456,264 @@ public final class BanHang extends javax.swing.JPanel {
             }
         }
     }
-    
-    class SearchProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            listProduct.clear();
-            String type = "";
-            String searchTxt = txtSearch.getText();
-            if (comboSearch.getSelectedIndex() != -1) {
-                    type = comboSearch.getItemAt(comboSearch.getSelectedIndex());
-                }
-            if (type.equalsIgnoreCase("Theo ten"))
-            {
-                listProduct = productDao.searchNameProduct(searchTxt);
-            }
-            else if (type.equalsIgnoreCase("Theo ma hang hoa"))
-            {
-                listProduct = productDao.searchMaProduct(searchTxt);
-            }
-            if (listProduct.isEmpty())
-                showMessage("Không có sản phẩm nào như vậy!");
-            showListProducts(listProduct);   
-        }
+
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
+
+    public List<Product> getListProduct() {
+        return listProduct;
+    }
+
+    public List<Product> getListSaleProduct() {
+        return listSaleProduct;
+    }
+
+    public JTextPane getLstProduct() {
+        return lstProduct;
+    }
+
+    public JLabel getNameMarket() {
+        return nameMarket;
+    }
+
+    public JTable getProductTable() {
+        return productTable;
+    }
+
+    public JSpinner getQuatityProduct() {
+        return quatityProduct;
+    }
+
+    public JTable getSearchTable() {
+        return searchTable;
+    }
+
+    public JTextField getTxtSearch() {
+        return txtSearch;
+    }
+
+    public static int getId() {
+        return id;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public ProductDao getProductDao() {
+        return productDao;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public String[] getColumnNames() {
+        return columnNames;
+    }
+
+    public String[] getColumnNames1() {
+        return columnNames1;
+    }
+
+    public JLabel getLbProduct() {
+        return LbProduct;
+    }
+
+    public JLabel getLbTotal() {
+        return LbTotal;
+    }
+
+    public JButton getAdd() {
+        return add;
+    }
+
+    public JPanel getBill() {
+        return bill;
+    }
+
+    public JButton getBtnSearch() {
+        return btnSearch;
+    }
+
+    public JComboBox<String> getComboSearch() {
+        return comboSearch;
+    }
+
+    public JLabel getDay() {
+        return day;
+    }
+
+    public JButton getDelete() {
+        return delete;
+    }
+
+    public JLabel getHours() {
+        return hours;
+    }
+
+    public JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public JLabel getjLabel7() {
+        return jLabel7;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public JMenu getjMenu1() {
+        return jMenu1;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane2() {
+        return jScrollPane2;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public JButton getPay() {
+        return pay;
+    }
+
+    public JLabel getTksAndGoodbye() {
+        return tksAndGoodbye;
+    }
+
+    public JLabel getTotal() {
+        return total;
+    }
+
+    public JLabel getXuyetxuyet() {
+        return xuyetxuyet;
+    }
+
+    public void setListProduct(List<Product> listProduct) {
+        this.listProduct = listProduct;
+    }
+
+    public void setListSaleProduct(List<Product> listSaleProduct) {
+        this.listSaleProduct = listSaleProduct;
     }
     
-    class AddProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            int row = searchTable.getSelectedRow();
-            Object s = quatityProduct.getValue();
-            int quantity = Integer.parseInt(s.toString());
-            if (row >= 0)
-            {
-                add.setEnabled(true);
-                Product product = new Product();
-                product.setMaHang(searchTable.getModel().getValueAt(row, 0).toString());
-                product.setName(searchTable.getModel().getValueAt(row, 1).toString());
-                product.setPrice(Integer.parseInt(searchTable.getModel().getValueAt(row, 2).toString()));
-                product.setQuantity(quantity);
-                for (int i = 0; i < listSaleProduct.size(); i++)
-                {
-                    if (listSaleProduct.get(i).getMaHang().equalsIgnoreCase(product.getMaHang()))
-                    {
-                        listSaleProduct.get(i).setQuantity(listSaleProduct.get(i).getQuantity() + product.getQuantity());
-                        break;
-                    }
-                    else if (i == listSaleProduct.size() - 1)
-                    {
-                        listSaleProduct.add(product);
-                        break;
-                    }
-                }
-                if (listSaleProduct.isEmpty())
-                    listSaleProduct.add(product);          
-            }
-            txtSearch.setText("");
-            showListSaleProducts(listSaleProduct);
-            showBill();
-            quatityProduct.setValue(0);
-        }
-    }
     
-    class DeleteProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            int row = productTable.getSelectedRow();
-            if (row >= 0)
-            {
-                delete.setEnabled(true);
-                Product product = new Product();
-                String maHang = productTable.getModel().getValueAt(row, 0).toString();
-                for (int i = 0 ; i < listSaleProduct.size(); i++)
-                {
-                    if (maHang.equalsIgnoreCase(listSaleProduct.get(i).getMaHang()))
-                    {
-                        sum -= listSaleProduct.get(i).getPrice();
-                        listSaleProduct.remove(i);
-                        break;
-                    }
-                }
-            }
-            showListSaleProducts(listSaleProduct);
-            showBill();
-        }
-    }
-  
-    class PayProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            showMessage("Bill đang được in!");
-            convertToTxt();
-            subQuantity();
-            DefaultTableModel model = (DefaultTableModel) searchTable.getModel();
-            model.setRowCount(0);
-            DefaultTableModel model1 = (DefaultTableModel) productTable.getModel();
-            model1.setRowCount(0);
-            listProduct.clear();
-            listSaleProduct.clear();
-            showBill();          
-        }
-    }
+    
+//    class SearchProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            listProduct.clear();
+//            String type = "";
+//            String searchTxt = txtSearch.getText();
+//            if (comboSearch.getSelectedIndex() != -1) {
+//                    type = comboSearch.getItemAt(comboSearch.getSelectedIndex());
+//                }
+//            if (type.equalsIgnoreCase("Theo ten"))
+//            {
+//                listProduct = productDao.searchNameProduct(searchTxt);
+//            }
+//            else if (type.equalsIgnoreCase("Theo ma hang hoa"))
+//            {
+//                listProduct = productDao.searchMaProduct(searchTxt);
+//            }
+//            if (listProduct.isEmpty())
+//                showMessage("Không có sản phẩm nào như vậy!");
+//            showListProducts(listProduct);   
+//        }
+//    }
+//    
+//    class AddProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            int row = searchTable.getSelectedRow();
+//            Object s = quatityProduct.getValue();
+//            int quantity = Integer.parseInt(s.toString());
+//            if (row >= 0)
+//            {
+//                add.setEnabled(true);
+//                Product product = new Product();
+//                product.setMaHang(searchTable.getModel().getValueAt(row, 0).toString());
+//                product.setName(searchTable.getModel().getValueAt(row, 1).toString());
+//                product.setPrice(Integer.parseInt(searchTable.getModel().getValueAt(row, 2).toString()));
+//                product.setQuantity(quantity);
+//                for (int i = 0; i < listSaleProduct.size(); i++)
+//                {
+//                    if (listSaleProduct.get(i).getMaHang().equalsIgnoreCase(product.getMaHang()))
+//                    {
+//                        listSaleProduct.get(i).setQuantity(listSaleProduct.get(i).getQuantity() + product.getQuantity());
+//                        break;
+//                    }
+//                    else if (i == listSaleProduct.size() - 1)
+//                    {
+//                        listSaleProduct.add(product);
+//                        break;
+//                    }
+//                }
+//                if (listSaleProduct.isEmpty())
+//                    listSaleProduct.add(product);          
+//            }
+//            txtSearch.setText("");
+//            showListSaleProducts(listSaleProduct);
+//            showBill();
+//            quatityProduct.setValue(0);
+//        }
+//    }
+//    
+//    class DeleteProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            int row = productTable.getSelectedRow();
+//            if (row >= 0)
+//            {
+//                delete.setEnabled(true);
+//                Product product = new Product();
+//                String maHang = productTable.getModel().getValueAt(row, 0).toString();
+//                for (int i = 0 ; i < listSaleProduct.size(); i++)
+//                {
+//                    if (maHang.equalsIgnoreCase(listSaleProduct.get(i).getMaHang()))
+//                    {
+//                        sum -= listSaleProduct.get(i).getPrice();
+//                        listSaleProduct.remove(i);
+//                        break;
+//                    }
+//                }
+//            }
+//            showListSaleProducts(listSaleProduct);
+//            showBill();
+//        }
+//    }
+//  
+//    class PayProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            showMessage("Bill đang được in!");
+//            convertToTxt();
+//            subQuantity();
+//            DefaultTableModel model = (DefaultTableModel) searchTable.getModel();
+//            model.setRowCount(0);
+//            DefaultTableModel model1 = (DefaultTableModel) productTable.getModel();
+//            model1.setRowCount(0);
+//            listProduct.clear();
+//            listSaleProduct.clear();
+//            showBill();          
+//        }
+//    }
+
+
+    
+    
     
     
 

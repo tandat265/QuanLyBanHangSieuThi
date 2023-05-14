@@ -8,6 +8,8 @@ import bean.DanhMucBean;
 import controller.ChuyenManHinhController;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -23,16 +25,40 @@ public class HomeView extends javax.swing.JFrame {
         setTitle("Quản lý bán hàng");      
     }
     
-    public void runChuyenManHinh()
-    {
-        ChuyenManHinhController controller = new ChuyenManHinhController(jpnView);
-        controller.setView(jpnQLBH, jlbQLBH);
-        
-        List<DanhMucBean> listItem = new ArrayList<>();
-        listItem.add(new DanhMucBean("BanHang", jpnBanHang, jlbBanHang));
-        listItem.add(new DanhMucBean("NhapHang", jpnThongKe, jlbThongKe));
-        controller.setEvent(listItem);
+    public JPanel getJpnView() {
+        return jpnView;
     }
+
+    
+    public JLabel getJlbBanHang() {
+        return jlbBanHang;
+    }
+
+    public JLabel getJlbQLBH() {
+        return jlbQLBH;
+    }
+
+    public JLabel getJlbThongKe() {
+        return jlbThongKe;
+    }
+
+    public JPanel getJpnBanHang() {
+        return jpnBanHang;
+    }
+
+    public JPanel getJpnQLBH() {
+        return jpnQLBH;
+    }
+
+    public JPanel getJpnRoot() {
+        return jpnRoot;
+    }
+
+    public JPanel getJpnThongKe() {
+        return jpnThongKe;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,7 +87,7 @@ public class HomeView extends javax.swing.JFrame {
         jlbQLBH.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jlbQLBH.setForeground(new java.awt.Color(255, 255, 255));
         jlbQLBH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbQLBH.setIcon(new javax.swing.ImageIcon("F:\\testjava\\KTGHP\\src\\main\\java\\image\\OIP (2).jpg")); // NOI18N
+        jlbQLBH.setIcon(new javax.swing.ImageIcon("F:\\testjava\\KTGHP\\src\\main\\java\\image\\market.jpg")); // NOI18N
         jlbQLBH.setText("QUẢN LÝ BÁN HÀNG");
 
         javax.swing.GroupLayout jpnQLBHLayout = new javax.swing.GroupLayout(jpnQLBH);
@@ -74,6 +100,8 @@ public class HomeView extends javax.swing.JFrame {
             jpnQLBHLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jlbQLBH, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
         );
+
+        jlbQLBH.setIcon(new javax.swing.ImageIcon("/src/main/java/image/market.jpg")); // NOI18N
 
         jpnBanHang.setBackground(new java.awt.Color(102, 255, 102));
 
@@ -94,6 +122,8 @@ public class HomeView extends javax.swing.JFrame {
             .addComponent(jlbBanHang, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
 
+        jlbBanHang.setIcon(new javax.swing.ImageIcon("src/main/java/image/sale (1).png")); // NOI18N
+
         jpnThongKe.setBackground(new java.awt.Color(102, 255, 102));
 
         jlbThongKe.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -112,6 +142,8 @@ public class HomeView extends javax.swing.JFrame {
             jpnThongKeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jlbThongKe, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
         );
+
+        jlbThongKe.setIcon(new javax.swing.ImageIcon("src/main/java/image/thongke (1).png"));
 
         javax.swing.GroupLayout jpnRootLayout = new javax.swing.GroupLayout(jpnRoot);
         jpnRoot.setLayout(jpnRootLayout);

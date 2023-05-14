@@ -16,7 +16,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>20</maven.compiler.source>
         <maven.compiler.target>20</maven.compiler.target>
-        <exec.mainClass>com.mycompany.ktghp.KTGHP</exec.mainClass>
+        <exec.mainClass>test.demo</exec.mainClass>
     </properties>
     <dependencies>
         <!-- JAXB API -->
@@ -37,4 +37,58 @@
             <version>SNAPSHOT</version>
         </dependency>
     </dependencies>
+    <name>QuanLyBanHangSieuThi_B14D52_02_NgoTanDat</name>
+    <build>
+
+<plugins>
+
+<plugin>
+
+<artifactId>maven-assembly-plugin</artifactId>
+
+<version>2.4</version>
+
+<configuration>
+
+<descriptorRefs>
+
+<descriptorRef>jar-with-dependencies</descriptorRef>
+
+</descriptorRefs>
+
+<archive>
+
+<manifest>
+
+<mainClass>test.demo</mainClass>
+
+</manifest>
+
+</archive>
+
+</configuration>
+
+<executions>
+
+<execution>
+
+<id>test</id>
+
+<phase>package</phase>
+
+<goals>
+
+<goal>single</goal>
+
+</goals>
+
+</execution>
+
+</executions>
+
+</plugin>
+
+</plugins>
+
+</build>
 </project>

@@ -38,7 +38,7 @@ public class LoginController
                 loginView.showMessage("Đăng nhập thành công!");
                 // nếu đăng nhập thành công, mở màn hình quản lý sinh viên
                 homeView = new HomeView();
-                HomeController homeController = new HomeController(homeView);
+                    HomeController homeController = new HomeController(homeView);
                 loginView.setVisible(false);
             } else {
                 loginView.showMessage("username hoặc password không đúng.");

@@ -36,9 +36,9 @@
         <type>Do uong</type>
     </product>
     <product>
-        <maHang>TA11</maHang>
+        <maHang>TA1</maHang>
         <name>Banh mi</name>
-        <price>7000</price>
+        <price>8000</price>
         <quantity>97</quantity>
         <type>Thuc an</type>
     </product>
@@ -46,7 +46,7 @@
         <maHang>DDHT3</maHang>
         <name>Vo 75 trang</name>
         <price>7000</price>
-        <quantity>47</quantity>
+        <quantity>42</quantity>
         <type>Do dung hoc tap</type>
     </product>
     <product>
@@ -64,7 +64,7 @@
         <type>Do dung hoc tap</type>
     </product>
     <product>
-        <maHang>TA1</maHang>
+        <maHang>TA2</maHang>
         <name>Keo alphalible</name>
         <price>7000</price>
         <quantity>46</quantity>
@@ -74,25 +74,18 @@
         <maHang>DU4</maHang>
         <name>Coca 100ml</name>
         <price>10000</price>
-        <quantity>43</quantity>
+        <quantity>40</quantity>
         <type>Do uong</type>
     </product>
     <product>
         <maHang>DDCN1</maHang>
-        <name>Dao cao rau</name>
-        <price>30000</price>
-        <quantity>20</quantity>
-        <type>Do dung ca nhan</type>
-    </product>
-    <product>
-        <maHang>DDCN2</maHang>
         <name>Kem danh rang</name>
         <price>38000</price>
         <quantity>30</quantity>
         <type>Do dung ca nhan</type>
     </product>
     <product>
-        <maHang>DDCN3</maHang>
+        <maHang>DDCN2</maHang>
         <name>Ban chai danh rang</name>
         <price>29000</price>
         <quantity>20</quantity>
@@ -100,86 +93,72 @@
     </product>
     <product>
         <maHang>DCVS3</maHang>
-        <name>Vim</name>
-        <price>35000</price>
-        <quantity>15</quantity>
-        <type>Dung cu ve sinh</type>
-    </product>
-    <product>
-        <maHang>DCVS4</maHang>
         <name>Lau nha Sunlight</name>
         <price>50000</price>
         <quantity>10</quantity>
         <type>Dung cu ve sinh</type>
     </product>
     <product>
-        <maHang>DCVS5</maHang>
+        <maHang>DCVS4</maHang>
         <name>Nuoc rua bat Sunlight</name>
         <price>18000</price>
         <quantity>25</quantity>
         <type>Dung cu ve sinh</type>
     </product>
     <product>
-        <maHang>TA2</maHang>
+        <maHang>TA3</maHang>
         <name>Oshi cay</name>
         <price>7000</price>
         <quantity>21</quantity>
         <type>Thuc an</type>
     </product>
     <product>
-        <maHang>TA3</maHang>
+        <maHang>TA4</maHang>
         <name>Banh que vi socola</name>
         <price>18000</price>
         <quantity>10</quantity>
         <type>Thuc an</type>
     </product>
     <product>
-        <maHang>TA9</maHang>
+        <maHang>TA5</maHang>
         <name>Banh que vi chanh</name>
+        <price>18000</price>
+        <quantity>4</quantity>
+        <type>Thuc an</type>
+    </product>
+    <product>
+        <maHang>TA11</maHang>
+        <name>Banh que vi dau</name>
         <price>18000</price>
         <quantity>7</quantity>
         <type>Thuc an</type>
     </product>
     <product>
-        <maHang>TA4</maHang>
-        <name>Banh que vi dau</name>
-        <price>18000</price>
-        <quantity>10</quantity>
-        <type>Thuc an</type>
-    </product>
-    <product>
-        <maHang>TA5</maHang>
+        <maHang>TA6</maHang>
         <name>Banh cam</name>
         <price>6000</price>
         <quantity>20</quantity>
         <type>Thuc an</type>
     </product>
     <product>
-        <maHang>TA6</maHang>
+        <maHang>TA7</maHang>
         <name>Hao hao</name>
         <price>4500</price>
         <quantity>48</quantity>
         <type>Thuc an</type>
     </product>
     <product>
-        <maHang>TA7</maHang>
+        <maHang>TA8</maHang>
         <name>Omachi</name>
         <price>8000</price>
         <quantity>48</quantity>
         <type>Thuc an</type>
     </product>
     <product>
-        <maHang>TA8</maHang>
+        <maHang>TA9</maHang>
         <name>Cung dinh</name>
         <price>8000</price>
         <quantity>48</quantity>
-        <type>Thuc an</type>
-    </product>
-    <product>
-        <maHang>TA10</maHang>
-        <name>3 mien</name>
-        <price>4000</price>
-        <quantity>18</quantity>
         <type>Thuc an</type>
     </product>
     <product>
@@ -193,7 +172,14 @@
         <maHang>DU3</maHang>
         <name>Bia Ha Noi</name>
         <price>300000</price>
-        <quantity>20</quantity>
+        <quantity>19</quantity>
         <type>Do uong</type>
+    </product>
+    <product>
+        <maHang>TA10</maHang>
+        <name>Banh ran</name>
+        <price>10000</price>
+        <quantity>20</quantity>
+        <type>Thuc an</type>
     </product>
 </products>

@@ -4,6 +4,7 @@
  */
 package controller;
 
+import bean.DanhMucBean;
 import dao.ProductDao;
 import dao.UserDao;
 import java.awt.event.ActionEvent;
@@ -28,12 +29,20 @@ public class HomeController
     private ProductDao productDao;
     private List<Product> listProduct;
     private List<Product> listSaleProduct;
-    private NhapHang nhapHang;
+    private NhapHang nhapHang;  
     private BanHang banHang;
     
     public HomeController(HomeView view) {
+        
+        //home, doi man hinh
         this.homeView = view;
-        homeView.runChuyenManHinh();
+        ChuyenManHinhController controller = new ChuyenManHinhController(homeView.getJpnView());
+        controller.setView(homeView.getJpnQLBH(), homeView.getJlbQLBH());
+        List<DanhMucBean> listItem = new ArrayList<>();
+        listItem.add(new DanhMucBean("BanHang", homeView.getJpnBanHang(), homeView.getJlbBanHang()));
+        listItem.add(new DanhMucBean("NhapHang", homeView.getJpnThongKe(), homeView.getJlbThongKe()));
+        controller.setEvent(listItem);
+        
         productDao = new ProductDao();
         homeView.setVisible(true);
         
@@ -41,5 +50,7 @@ public class HomeController
         nhapHang = new NhapHang();        
         //ban hang
         banHang = new BanHang();
+        
+        
     }  
 }

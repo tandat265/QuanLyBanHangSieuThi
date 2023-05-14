@@ -32,15 +32,15 @@ public final class NhapHang extends javax.swing.JPanel {
     public NhapHang() {
         initComponents();
         maHang.setEditable(false);  
-        productDao = new ProductDao();
-        showListProducts(productDao.getListProduct());
-        addAddProductListener(new AddProductListener());
-        addEdiProductListener(new EditProductListener());
-        addDeleteProductListener(new DeleteProductListener());
-        addClearListener(new ClearProductListener());
-        addSortStudentNameListener(new SortProductNameListener());
-        addSortProductPriceListener(new SortProductPriceListener());
-        addListStudentSelectionListener(new ListProductSelectionListener()); 
+//        productDao = new ProductDao();
+//        showListProducts(productDao.getListProduct());
+//        addAddProductListener(new AddProductListener());
+//        addEdiProductListener(new EditProductListener());
+//        addDeleteProductListener(new DeleteProductListener());
+//        addClearListener(new ClearProductListener());
+//        addSortStudentNameListener(new SortProductNameListener());
+//        addSortProductPriceListener(new SortProductPriceListener());
+//        addListStudentSelectionListener(new ListProductSelectionListener()); 
     }
 
     /**
@@ -141,9 +141,9 @@ public final class NhapHang extends javax.swing.JPanel {
             }
         });
 
-        add.setText("Add");
+        add.setText("Thêm");
 
-        clear.setText("Clear");
+        clear.setText("Làm mới");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -155,16 +155,16 @@ public final class NhapHang extends javax.swing.JPanel {
             }
         });
 
-        edit.setText("Edit");
+        edit.setText("Sửa");
 
-        delete.setText("Delete");
+        delete.setText("Xoá");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(89, Short.MAX_VALUE)
+                .addContainerGap(93, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(67, 67, 67))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -185,11 +185,11 @@ public final class NhapHang extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(edit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                    .addComponent(edit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(clear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(delete))
+                    .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -241,7 +241,7 @@ public final class NhapHang extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 585, Short.MAX_VALUE)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -443,85 +443,85 @@ public final class NhapHang extends javax.swing.JPanel {
         ProductTable.getSelectionModel().addListSelectionListener(listener);
     }
     
-    class AddProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            Product product = getProductInfo();
-            if (product != null) 
-            {
-                List<Product> productLst = productDao.getListProduct();
-                for (int i = 0; i < productLst.size(); i++)
-                {
-                    if (productLst.get(i).getName().equalsIgnoreCase(product.getName()))
-                    {
-                        productLst.get(i).setQuantity(productLst.get(i).getQuantity() + product.getQuantity());
-                        productDao.edit(productLst.get(i));
-                        break;
-                    }
-                    if (i == productLst.size() - 1)
-                    {
-                        productDao.add(product);
-                        break;
-                    }
-                }
-                showProduct(product);
-                showListProducts(productDao.getListProduct());
-                showMessage("Thêm thành công!");
-                clearProductInfo();
-            }
-        }
-    }
-    
-    class EditProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            Product product = getProductInfo();
-            if (product != null) {
-                productDao.edit(product);
-                showProduct(product);
-                showListProducts(productDao.getListProduct());
-                showMessage("Cập nhật thành công!");
-                clearProductInfo();
-            }
-        }
-    }
-    
-    class DeleteProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            Product product = getProductInfo();
-            if (product != null) {
-                productDao.delete(product);
-                showProduct(product);
-                showListProducts(productDao.getListProduct());
-                showMessage("Xóa thành công!");
-                clearProductInfo();
-            }
-        }
-    }
-    
-    class ClearProductListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            clearProductInfo();
-        }
-    }
-    
-    class SortProductNameListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            productDao.sortProductByName();
-            showListProducts(productDao.getListProduct());
-        }
-    }
-    
-    class SortProductPriceListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            productDao.sortProductByPrice();
-            showListProducts(productDao.getListProduct());
-        }
-    }
-    
-    class ListProductSelectionListener implements ListSelectionListener {
-        public void valueChanged(ListSelectionEvent e) {
-            fillProductFromSelectedRow();
-        }
-    }
+//    class AddProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            Product product = getProductInfo();
+//            if (product != null) 
+//            {
+//                List<Product> productLst = productDao.getListProduct();
+//                for (int i = 0; i < productLst.size(); i++)
+//                {
+//                    if (productLst.get(i).getName().equalsIgnoreCase(product.getName()))
+//                    {
+//                        productLst.get(i).setQuantity(productLst.get(i).getQuantity() + product.getQuantity());
+//                        productDao.edit(productLst.get(i));
+//                        break;
+//                    }
+//                    if (i == productLst.size() - 1)
+//                    {
+//                        productDao.add(product);
+//                        break;
+//                    }
+//                }
+//                showProduct(product);
+//                showListProducts(productDao.getListProduct());
+//                showMessage("Thêm thành công!");
+//                clearProductInfo();
+//            }
+//        }
+//    }
+//    
+//    class EditProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            Product product = getProductInfo();
+//            if (product != null) {
+//                productDao.edit(product);
+//                showProduct(product);
+//                showListProducts(productDao.getListProduct());
+//                showMessage("Cập nhật thành công!");
+//                clearProductInfo();
+//            }
+//        }
+//    }
+//    
+//    class DeleteProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            Product product = getProductInfo();
+//            if (product != null) {
+//                productDao.delete(product);
+//                showProduct(product);
+//                showListProducts(productDao.getListProduct());
+//                showMessage("Xóa thành công!");
+//                clearProductInfo();
+//            }
+//        }
+//    }
+//    
+//    class ClearProductListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            clearProductInfo();
+//        }
+//    }
+//    
+//    class SortProductNameListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            productDao.sortProductByName();
+//            showListProducts(productDao.getListProduct());
+//        }
+//    }
+//    
+//    class SortProductPriceListener implements ActionListener {
+//        public void actionPerformed(ActionEvent e) {
+//            productDao.sortProductByPrice();
+//            showListProducts(productDao.getListProduct());
+//        }
+//    }
+//    
+//    class ListProductSelectionListener implements ListSelectionListener {
+//        public void valueChanged(ListSelectionEvent e) {
+//            fillProductFromSelectedRow();
+//        }
+//    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ProductTable;
     private javax.swing.JButton add;
